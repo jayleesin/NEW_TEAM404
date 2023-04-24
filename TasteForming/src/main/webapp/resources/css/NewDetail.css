@@ -1,0 +1,282 @@
+.bg {
+	background-color: #f0f0f0;
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.container-wrap {
+	min-height: auto;
+	padding: 20px 0px 50px 0px;
+	overflow: hidden;
+	max-width: 1200px;
+	position: relative;
+	margin: auto;
+}
+
+.subleft-cont {
+	border-radius: 14px;
+	position: absolute;
+	margin-top: 118px;
+	width: 220px;
+	float: left;
+	height: 250px;
+	background-color: #fff;
+	left: 15px;
+	top: 20px;
+}
+
+.header-container {
+	border-radius: 14px;
+	padding: 20px;
+	width: 660px;
+	margin: 118px auto 0;
+	background-color: #fff;
+}
+
+.food_img {
+	width: 620px;
+	height: 330px;
+	margin-bottom: 28px;
+}
+
+.detail_resName {
+	font-size: 35px;
+	color: #222228;
+	line-height: 44px;
+	font-weight: 600;
+	letter-spacing: -0.095px;
+	margin-bottom: 15px;
+}
+
+.res_menu {
+	font-size: 16px;
+	color: #66666e;
+	line-height: 100%;
+	margin-bottom: 20px;
+}
+
+.favor-pic-appra {
+    padding-top: 15px;
+    overflow: hidden;
+    font-size: 0px;
+    overflow: auto;
+    margin-left: auto; /* 수정된 부분 */
+    display: flex;
+}
+.favor-pic-appra button:last-child {
+  margin-left: auto;
+}
+
+
+.favor-pic-appra button {
+    display: inline-block;
+    line-height: 36px;
+    padding: 2px 18px 0px 18px;
+    border: 1px solid #222228;
+    border-radius: 5px;
+    margin-right: 10px;
+    z-index: 999;
+    background-color: #222228;
+    color: #f0f0f0;
+    font-size: 16px;
+}
+
+button:active {
+	background-color: #f0f0f0;
+	border-color: #222228;
+	color: #222228;
+	font-weight: 900;
+}
+
+button:hover {
+	background-color: #f0f0f0;
+	border-color: #222228;
+	color: #222228;
+	transition: 0.3s;
+}
+
+.reserve {
+    display: none;
+}
+
+.reserveBtn{
+	float: right;
+}
+
+.info-container {
+	border-radius: 14px;
+	padding: 20px;
+	width: 660px;
+	margin: 20px auto 0;
+	background-color: #fff;
+}
+
+.info-container p {
+	margin-bottom: 15px;
+}
+
+.menu-container {
+	padding: 20px;
+	width: 660px;
+	margin: 40px auto 0;
+	background-color: #fff;
+	border-radius: 14px;
+}
+
+.menu-container p {
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+.review_box {
+	padding: 20px;
+	width: 660px;
+	margin: 40px auto 0;
+	background-color: #fff;
+	border-radius: 14px;
+}
+
+.review-title {
+	font-size: 24px;
+	color: #222228;
+	line-height: 120%;
+	margin-bottom: 20px;
+	font-weight: 600;
+}
+
+.review-content {
+	margin: 20px auto 0;
+	width: 100%;
+	resize: none;
+	border-radius: 10px;
+	padding: 15px;
+}
+
+.review-list {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.review-list li {
+	list-style: none;
+	float: left;
+	margin-left: 20px;
+}
+
+.reviews {
+	margin-top: 20px;
+	border: 1px solid #e6e6eb;
+	padding: 15px
+}
+
+.reviews span {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.dates {
+	padding-top: 10px;
+	font-size: 16px;
+}
+
+.content {
+	padding-top: 20px;
+	font-size: 15px;
+}
+
+.footer {
+	padding-top: 50px;
+	height: 200px;
+	z-index: 10;
+	background-color: #ffF;
+}
+
+.footer address {
+	text-align: right;
+}
+
+
+#myModal {
+	display: none;
+	position: fixed;
+	z-index: 9999;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+#myModal .modal-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	max-width: 600px;
+}
+
+#myModal .close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+#myModal .close:hover, #myModal .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index:9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  justify-content: center;
+  align-items: center; /* 수직 가운데 정렬 */
+}
+
+.modal::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto 0;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 700px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

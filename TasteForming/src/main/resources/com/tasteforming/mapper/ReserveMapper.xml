@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- ReserveMapper.xml -->
+<mapper namespace="com.tasteforming.mapper.ReserveMapper">
+
+	<resultMap id="reserveResultMap"
+		type="com.tasteforming.domain.ReserveVO">
+		<!-- 다른 필드들의 매핑 정보 -->
+		<id property="order_no" column="order_no" />
+	</resultMap>
+
+	<insert id="insertReserve">
+		insert into reservation (order_no,
+		res_no,userid,head_cnt,res_Name, hour, order_date)
+		values
+		(seq_reservation.nextval, #{res_No}, #{userId},#{head_Cnt},
+		#{res_Name}, #{hour},#{order_Date} )
+	</insert>
+
+	<select id="getMember"
+		resultType="com.tasteforming.domain.MemberVO">
+		SELECT * FROM MEMBER WHERE userid = ${userId}
+	</select>
+
+
+</mapper>
+
+
+

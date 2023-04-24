@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- ReviewMapper.xml -->
+<mapper namespace="com.tasteforming.mapper.ReviewMapper">
+
+	<select id="allReview"
+		resultType="com.tasteforming.domain.ReviewVO">
+		SELECT * FROM RESTAURANT_REVIEW WHERE res_no = #{res_No}
+	</select>
+
+
+	<select id="getAllReviewer" resultType="long">
+		select count(*) from RESTAURANT_REVIEW where res_no = #{res_No}
+	</select>
+
+
+	<insert id="insert">
+		insert into RESTAURANT_REVIEW (resview_no, content,
+		userid,res_no)
+		values (seq_RESTAURANT_REVIEW.nextval, #{content},
+		#{userId},#{res_No})
+	</insert>
+
+	<update id="update"
+		parameterType="com.tasteforming.domain.ReviewVO">
+		update RESTAURANT_REVIEW set content = #{content}
+		where
+		res_no = #{res_No} and resview_no = #{resview_No}
+	</update>
+
+	<delete id="deleteReview">
+		DELETE FROM RESTAURANT_REVIEW WHERE resview_No =
+		#{resview_No}
+	</delete>
+
+
+</mapper>

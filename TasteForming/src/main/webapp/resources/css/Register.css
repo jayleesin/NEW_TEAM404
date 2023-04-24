@@ -1,0 +1,123 @@
+.header {
+    padding: 22px 0;
+    border-bottom: solid #e0e0e0 1px;
+    text-align: center;
+}
+
+.header img {
+    width: 200px;
+    height: auto;
+}
+
+.main-layout {
+    width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+.title {
+    padding: 50px 12px 25px 12px;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: solid #e0e0e0 1px;
+}
+
+.sub-title {
+    padding: 24px 0px;
+    font-weight: bold;
+}
+
+
+.input-text {
+    width: 388.4px;
+    height: 38.4px;
+    border: solid #d5d5d5 0.8px;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    padding-left: 10px;
+}
+
+.checkbox {
+    cursor: pointer;
+    float: left;
+    padding-right: 20px;
+}
+
+.checkbox #ckb_auto,
+#ckb_restaurant {
+    display: none;
+}
+
+.remember-me {
+    text-align: left;
+}
+
+.fw-b {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.check-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 4px;
+    background: url(https://dfzrjox9sv97l.cloudfront.net/dicons_20160930/img/common/ic-signup-chk-off.png) left center no-repeat;
+    vertical-align: middle;
+    transition-duration: .3s;
+}
+
+.find_pwd {
+    display: block;
+    padding-top: 8px;
+    font-size: 13px;
+    text-align: right;
+}
+
+.login-btn {
+    background-color: #222222;
+    color: #ffffff;
+    border: none;
+    border-radius: 2px;
+    width: 400px;
+    height: 40px;
+    font-size: 13px;
+    margin: 24px 0;
+}
+
+.register-btn {
+    background-color: #3b5998;
+    color: #ffffff;
+    border: none;
+    border-radius: 2px;
+    width: 400px;
+    height: 40px;
+    font-size: 13px;
+    margin: 24px 0;
+}
+
+.middle_line {
+    width: 40px;
+}
+
+
+.footer {
+    border-top: 1px #e0e0e0 solid;
+    margin-top: 150px;
+    padding-top: 40px;
+    height: 200px;
+
+    background-color: #ffF;
+}
+
+.footer address {
+    text-align: right;
+}
+
+.container {
+    align-items: center;
+    height: 74px;
+    width: 1070px;
+    margin: auto;
+}

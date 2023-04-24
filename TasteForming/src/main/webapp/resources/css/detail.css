@@ -1,0 +1,243 @@
+/* 브라우저 마진과 패딩 리셋 */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* INPUT 가리기 */
+.photosection [id*="slide"] {
+	display: none;
+}
+
+.photosection .slidelist>li>a img {
+	max-width: 100%;
+	height: auto;
+}
+/* 슬라이드 영역 - max-width 크기를 조절해주면 됩니다*/
+.photosection .slidewrap {
+	max-width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+
+.photosection .slidelist {
+	white-space: nowrap;
+	font-size: 0;
+}
+
+.photosection .slidelist>li {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	transition: all .5s;
+}
+
+.photosection .slidelist>li>a {
+	display: block;
+	position: relative;
+}
+
+/* 좌우로 넘기는 LABEL버튼에 대한 스타일 */
+.photosection .slide-control {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+}
+
+.photosection .slide-control label {
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 50px;
+	cursor: pointer;
+}
+
+.photosection .slide-control .left {
+	left: 30px;
+	background: url('/resources/img/left.png') center center/100% no-repeat;
+}
+
+.photosection .slide-control .right {
+	right: 30px;
+	background: url('/resources/img/right.png') center center/100% no-repeat;
+}
+
+.photosection .slide-control [class*="control"] {
+	display: none;
+}
+
+/* INPUT이 체크되면 변화값이 li까지 전달되는 스타일 */
+.photosection [id="slide01"]:checked ~ .slidewrap .slidelist>li {
+	transform: translateX(0%);
+}
+
+.photosection [id="slide02"]:checked ~ .slidewrap .slidelist>li {
+	transform: translateX(-100%);
+}
+
+.photosection [id="slide03"]:checked ~ .slidewrap .slidelist>li {
+	transform: translateX(-200%);
+}
+
+/*  INPUT이 체크되면 변화값이 좌우 슬라이드 버튼을 담고 있는 div 까지 전달되는 스타일 */
+.photosection [id="slide01"]:checked ~ .slidewrap .control01 {
+	display: block;
+}
+
+.photosection [id="slide02"]:checked ~ .slidewrap .control02 {
+	display: block;
+}
+
+.photosection [id="slide03"]:checked ~ .slidewrap .control03 {
+	display: block;
+}
+
+body {
+	background: #f7f6f6;
+	/* 전체 배경색을 회색으로 설정 */
+}
+
+div.left {
+	width: 74%;
+	float: right;
+	margin-top: 100px;
+}
+
+div.right {
+	width: 200px;
+	height: 282px;
+	float: right;
+	margin-top: 40px;
+}
+
+.contex-box {
+	padding: 20px;
+	margin: 10px;
+	background: #fff;
+	box-shadow: 1px 1px 3px #d8d8d8;
+}
+
+.resinfo {
+	padding: 20px;
+	margin: 10px;
+	background: #fff;
+	box-shadow: 1px 1px 3px #d8d8d8;
+}
+
+.mb-5 {
+	padding: 20px;
+	margin: 10px;
+	background: #fff;
+	box-shadow: 1px 1px 3px #d8d8d8;
+}
+
+.res_detail {
+	padding: 20px;
+	margin: 10px;
+	background: #fff;
+	box-shadow: 1px 1px 3px #d8d8d8;
+}
+
+.mini-map {
+	padding: 10px;
+	background: #fff;
+	box-shadow: 1px 1px 3px #d8d8d8;
+}
+
+
+.d-flex.justify-content-end {
+	justify-content: flex-end;
+}
+
+.btn.btn-outline-dark:first-child {
+	margin-right: 10px;
+}
+
+#myModal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+#myModal .modal-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	max-width: 600px;
+}
+
+#myModal .close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+#myModal .close:hover, #myModal .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 40% auto 0;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 700px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

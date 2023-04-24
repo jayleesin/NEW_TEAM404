@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/Search.css">
+    <title>Document</title>
+</head>
+<!-- 검색 아이콘 -->
+<button id="searchIcon"><i class="fas fa-search"></i></button>
+
+<!-- 검색 모달창 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <form action="#" method="GET">
+            <label for="search">검색어 입력:</label>
+            <input type="text" id="search" name="query" placeholder="가게 이름, 지역, 음식 검색">
+            <button type="submit">검색</button>
+        </form>
+    </div>
+</div>
+
+<!-- 검색 아이콘을 감싸는 div -->
+<div id="searchWrapper" class="search-wrapper">
+    <!-- 검색 입력창 -->
+    <input type="text" id="searchInput" class="search-input" placeholder="가게 이름, 지역, 음식 검색">
+    <!-- 검색 버튼 -->
+    <button type="button" id="searchButton" class="search-button">검색</button>
+</div>
+<script src="./js/Search.js"></script>
+</body>
+
+</html>

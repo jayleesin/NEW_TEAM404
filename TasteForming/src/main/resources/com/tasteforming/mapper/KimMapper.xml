@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tasteforming.mapper.KimMapper">
+    <select id="getAllData" resultType="com.tasteforming.domain.KimVO">
+        SELECT REVIEW_NO, BOARD_NO, REPLY, REGDATE, UPDATEDATE, MEMBER_ID
+        FROM TBL_BOARD_REPLY
+    </select>
+    
+<!--     <insert id="insertData" parameterType="com.tasteforming.domain.KimVO">
+        INSERT INTO TBL_BOARD_REPLY (REVIEW_NO, BOARD_NO, REPLY, REGDATE, UPDATEDATE, MEMBER_ID)
+        VALUES (#{reviewNo}, #{boardNo}, #{reply}, #{regDate}, #{updateDate}, #{memberId, jdbcType=VARCHAR})
+    </insert> -->
+    
+    <insert id="insert">
+		insert into TEST (MEMBER_ID, PASSWORD, ROLE, NAME, ADDRESS)
+		values (#{member_Id},#{password}, #{role}, #{name}, #{address})
+	</insert>
+</mapper>

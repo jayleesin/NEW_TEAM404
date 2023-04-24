@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tasteforming.mapper.BoardMapper">
+	<select id="getList" resultType="com.tasteforming.domain.BoardVO">
+  <![CDATA[select * from tbl_board where board_no >0]]>
+	</select>
+
+	<insert id="insert">
+		insert into tbl_board (board_no,title,content,userId)
+		values
+		(seq_board.nextval, #{title}, #{content}, #{userId})
+	</insert>
+
+
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="board_no" order="BEFORE"
+			resultType="long">
+     	<![CDATA[ select seq_board.nextval from dual]]>
+		</selectKey>
+		 
+		insert into tbl_board (board_no,title,content,userId)
+		values (seq_board.nextval,#{title}, #{content}, #{userId})
+	</insert>
+
+
+	<select id="read" resultType="com.tasteforming.domain.BoardVO">
+		select * from tbl_board where
+		board_no=#{board_no}
+	</select>
+
+	<delete id="delete">
+		delete tbl_board where board_no=#{board_no}
+	</delete>
+
+	<update id="update">
+		update tbl_board
+		set title= #{title},
+		content=#{content},
+		updateDate = sysdate
+		where board_no =
+		#{board_no}
+	</update>
+
+
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%' || #{keyword} || '%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%' || #{keyword} || '%'
+						</when>
+						<when test="type == 'W'.toString()">
+							userId like '%' || #{keyword} || '%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+	<select id="getListWithPaging" resultType="com.tasteforming.domain.BoardVO">
+  <![CDATA[
+  select 
+    board_no, title, content, userId, regdate, updatedate
+  from 
+      (
+      select /*+INDEX_DESC(tbl_board pk_board) */
+        rownum rn, board_no, title, content, userId, regdate, updatedate 
+      from 
+        tbl_board
+      where 
+  ]]>
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							userId like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+      
+  <![CDATA[    
+      rownum <= #{pageNum} * #{amount}
+      )
+  where rn > (#{pageNum} -1) * #{amount}   
+  ]]>
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+	select count(*) from tbl_board
+	</select>
+
+</mapper>
+

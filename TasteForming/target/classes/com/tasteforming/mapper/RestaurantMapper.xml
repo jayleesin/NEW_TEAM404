@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tasteforming.mapper.RestaurantMapper">
+
+	<select id="getAllData"
+		resultType="com.tasteforming.domain.RestaurantVO">
+          <![CDATA[SELECT * FROM RESTAURANT WHERE RES_NO > 0]]>
+	</select>
+
+	<insert id="insertRest">
+		INSERT INTO restaurant (res_No, res_Name, create_Date, address, info,
+		userId, menu, type,img_path)
+		VALUES (SEQ_RESTAURANT.Nextval, #{res_Name}, sysdate, #{address}, #{info},
+		#{userId}, #{menu}, #{type},#{img_path})
+	</insert>
+
+	<update id="likeCnt"
+		parameterType="com.tasteforming.domain.RestaurantVO">
+		update RESTAURANT set likecnt = likeCnt + 1
+		where res_no = #{res_No}
+	</update>
+	
+	<update id="unlikeCnt"
+    parameterType="com.tasteforming.domain.RestaurantVO">
+    update RESTAURANT set likecnt = 
+        case when likecnt > 0 then likeCnt - 1 else 0 end
+    where res_no = #{res_No}
+</update>
+
+
+</mapper>

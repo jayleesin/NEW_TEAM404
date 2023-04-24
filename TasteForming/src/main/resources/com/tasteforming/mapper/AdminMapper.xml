@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tasteforming.mapper.AdminMapper">
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+		</trim>
+	</sql>
+
+	<!-- UserManagement -->
+	<select id="getAllMember"
+		resultType="com.tasteforming.domain.AdminMemberVO">
+		SELECT u.userId, u.userName, u.regDate, u.updateDate,
+		u.enabled, u.address,
+		a.auth
+		FROM member u
+		JOIN auth a ON u.userId =
+		a.userId;
+	</select>
+
+	<select id="getMemberWithPaging"
+		resultType="com.tasteforming.domain.AdminMemberVO">
+  <![CDATA[
+SELECT *
+FROM (
+    SELECT rownum rn, auth.*
+    FROM (
+        SELECT u.userId, u.userName, u.regDate, u.updateDate, u.enabled, u.address, a.auth
+        FROM member u
+        JOIN auth a ON u.userId = a.userId
+    ) auth WHERE
+  ]]>
+		<include refid="criteria"></include>
+  	  	<![CDATA[
+  		rownum <= #{pageNum} * #{amount}
+  		)
+  	where rn > (#{pageNum} -1) * #{amount}
+  	]]>
+	</select>
+
+	<select id="getMemberTotalCnt" resultType="int">
+		select count(*) from member
+		<include refid="criteria"></include>
+
+	</select>
+
+	<update id="updateUser">
+	<![CDATA[
+		update member set enabled = #{enabled}
+		where userid= #{userId}
+		]]>
+	</update>
+
+	<delete id="deleteUserAuth">
+		DELETE FROM auth WHERE userId = #{userId}
+	</delete>
+
+
+	<delete id="deleteUser">
+		DELETE FROM MEMBER WHERE USERID = #{userId}
+
+	</delete>
+
+
+
+	<!-- ResManagement -->
+
+	<select id="getResWithPaging"
+		resultType="com.tasteforming.domain.RestaurantVO">
+		 	<![CDATA[
+		SELECT *
+		FROM (
+		SELECT ROWNUM RN, RES.*
+		FROM (
+		SELECT *
+		FROM restaurant
+		 ]]>
+		<include refid="criteria"></include>
+      	<![CDATA[
+    ORDER BY RES_NO ASC
+    ) RES
+    WHERE ROWNUM <= #{pageNum} * #{amount}
+    )
+    WHERE RN > (#{pageNum} - 1) * #{amount}
+    ]]>
+	</select>
+
+	<select id="getResTotalCnt" resultType="int">
+		select count(*) from restaurant
+		<include refid="criteria"></include>
+
+	</select>
+
+	<update id="updateRes"
+		parameterType="com.tasteforming.domain.RestaurantVO">
+		UPDATE restaurant SET
+		res_Name = #{res_Name},
+		info = #{info},
+		address = #{address},
+		menu = #{menu},
+		type = #{type}
+		where res_no = #{res_No}
+	</update>
+
+	<delete id="deleteRes">
+		delete from restaurant where res_no = #{res_No}
+	</delete>
+
+
+
+
+	<!-- BoardManagement -->
+
+	<select id="getBoardWithPaging"
+		resultType="com.tasteforming.domain.BoardVO">
+		<![CDATA[
+  SELECT *
+  FROM (
+    SELECT ROWNUM RN, B.*
+    FROM (
+      SELECT *
+      FROM tbl_board
+      ]]>
+		<include refid="criteria" />
+      <![CDATA[
+      ORDER BY BOARD_NO DESC
+    ) B
+    WHERE ROWNUM <= #{pageNum} * #{amount}
+  )
+  WHERE RN > (#{pageNum} - 1) * #{amount}
+      ]]>
+	</select>
+
+	<select id="getBoardTotalCnt" resultType="int">
+		select count(*) from tbl_board
+		<include refid="criteria"></include>
+
+	</select>
+
+	<update id="updateBoard"
+		parameterType="com.tasteforming.domain.BoardVO">
+		UPDATE tbl_board SET
+		title = #{title},
+		content = #{content},
+		updateDate = sysdate
+		where board_no = #{board_no}
+	</update>
+
+	<delete id="deleteBoard">
+		delete from tbl_board where board_no = #{board_no}
+	</delete>
+
+
+</mapper>

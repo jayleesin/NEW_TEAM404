@@ -1,0 +1,50 @@
+main {
+    background-color: #d9d9d9;
+    height: 2000px;
+}
+
+.box {
+    background-color: #d9d9d9;
+    position: relative;
+    width: 1300px;
+    margin: 50px auto;
+}
+
+.sub-box {
+    background-color: #fff;
+    width: 1200px;
+    margin: auto;
+    border-radius: 21px;
+}
+
+
+.swiper-container {
+    width: 1190px;
+    overflow: hidden;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 238px;
+    height: 238px;
+}
+
+.swiper-slide p {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    display: none;
+}
+
+.swiper-slide:hover p {
+    display: block;
+    transition: 0.5s;
+}
+
+.my-slider .swiper-button-prev,
+.my-slider .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+
+}
