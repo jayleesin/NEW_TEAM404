@@ -1,1 +1,1 @@
-# NEW_TEAM404
+# This project is a web project with restaurant reservations, recommendations, and blogging functions.
